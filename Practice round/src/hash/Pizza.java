@@ -15,7 +15,7 @@ public class Pizza {
     private int[] input;
     private List<Integer> output;
     private int score;
-    private String name;
+    private final String name;
 
     public Pizza(final String name) {
         this.name = name;
@@ -52,7 +52,7 @@ public class Pizza {
     }
 
     private void inputData() throws IOException {
-        List<String> lines = Files.readAllLines(Paths.get("input\\" + name + ".in"), StandardCharsets.UTF_8);
+        List<String> lines = Files.readAllLines(Paths.get("input/" + name + ".in"), StandardCharsets.UTF_8);
         String[] variables = lines.get(0).split(" ");
         max = Integer.parseInt(variables[0]);
         input = new int[Integer.parseInt(variables[1])];
@@ -63,7 +63,7 @@ public class Pizza {
     }
 
     private void writingToFile() throws FileNotFoundException {
-        PrintWriter pw = new PrintWriter("output\\" + name + ".out");
+        PrintWriter pw = new PrintWriter("output//" + name + ".out");
         pw.println(output.size());
         for (int i = 0; i < output.size(); i++) {
             pw.print(output.get(i));
